@@ -115,6 +115,8 @@ extension MapViewController: MKMapViewDelegate, UIGestureRecognizerDelegate {
         let controller = self.storyboard!.instantiateViewController(withIdentifier: "PhotoAlbumViewController") as? PhotoAlbumViewController
         controller?.coordinate = view.annotation?.coordinate
         
+        mapView.deselectAnnotation(view.annotation! , animated: true)
+        
         for pin in pins {
             if pin.lat.isEqual(to: view.annotation?.coordinate.latitude.magnitude ?? 90){
                 controller?.pin = pin

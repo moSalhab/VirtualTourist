@@ -68,7 +68,7 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, NSFetchedRe
         do {
             try fetchedResultsController.performFetch()
         } catch {
-            print("The fetch could not be performed: \(error.localizedDescription)")
+            debugPrint("The fetch could not be performed: \(error.localizedDescription)")
             return
         }
     }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AE51AE0E249FD6910040130C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE51AE0D249FD6910040130C /* DataController.swift */; };
 		AE51AE11249FD6C50040130C /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE51AE0F249FD6C50040130C /* VirtualTourist.xcdatamodeld */; };
+		AE59162624AE217A0088E87C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE59162524AE217A0088E87C /* Constants.swift */; };
 		AE6571E824A6538800FDC8BF /* PhotoAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6571E724A6538800FDC8BF /* PhotoAlbumCollectionViewCell.swift */; };
 		AE6571EA24A6585200FDC8BF /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6571E924A6585200FDC8BF /* API.swift */; };
 		AEAA390E24A3D96500BA7E81 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAA390D24A3D96500BA7E81 /* PhotoAlbumViewController.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		AE51AE0D249FD6910040130C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		AE51AE10249FD6C50040130C /* VirtualTourist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VirtualTourist.xcdatamodel; sourceTree = "<group>"; };
+		AE59162524AE217A0088E87C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AE6571E724A6538800FDC8BF /* PhotoAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE6571E924A6585200FDC8BF /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		AEAA390D24A3D96500BA7E81 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				AE51AE0D249FD6910040130C /* DataController.swift */,
 				AE51AE0F249FD6C50040130C /* VirtualTourist.xcdatamodeld */,
 				AE6571E924A6585200FDC8BF /* API.swift */,
+				AE59162524AE217A0088E87C /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				AE51AE0E249FD6910040130C /* DataController.swift in Sources */,
 				AEAA390E24A3D96500BA7E81 /* PhotoAlbumViewController.swift in Sources */,
 				AEE453002497F91400E9D488 /* AppDelegate.swift in Sources */,
+				AE59162624AE217A0088E87C /* Constants.swift in Sources */,
 				AEBC3B0324AB0F3000960283 /* PhotoViewController.swift in Sources */,
 				AEE453022497F91400E9D488 /* SceneDelegate.swift in Sources */,
 				AE6571EA24A6585200FDC8BF /* API.swift in Sources */,
