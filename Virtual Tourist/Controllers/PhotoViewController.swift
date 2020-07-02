@@ -37,6 +37,7 @@ class PhotoViewController: UIViewController {
     
     @objc func deletePhoto() {
         self.fetchedResultsViewController.managedObjectContext.delete(self.data)
+        try? self.dataController.viewContext.save()
         navigationController?.popViewController(animated: true)
     }
 }

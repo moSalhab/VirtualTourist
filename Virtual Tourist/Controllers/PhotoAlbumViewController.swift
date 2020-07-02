@@ -36,6 +36,7 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, NSFetchedRe
         let region = MKCoordinateRegion(center: coordinate, span: span)
         self.mapView.setRegion(region, animated: true)
         
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,12 +46,14 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, NSFetchedRe
         mapView.addAnnotation(annotation)
         
         fetchedResultsController = nil
+        print("DidAppear called")
         setupFetchedResultsController()
         
         if fetchedResultsController.fetchedObjects?.count == 0 {
             downloadAlbum(pin: pin)
         }
-        
+
+        photoCollectionView.reloadData()
     }
     
     func setupFetchedResultsController() {
@@ -59,7 +62,7 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, NSFetchedRe
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "pin", ascending: false)]
         fetchRequest.predicate = NSPredicate(format: "pin == %@", pin)
 
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(String(describing: self.pin)) -photos")
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(String(describing: self.pin)) -photos")
         
         fetchedResultsController.delegate =  self
 
@@ -149,6 +152,7 @@ extension PhotoAlbumViewController: UICollectionViewDelegate, UICollectionViewDa
         controller?.data = data
         controller?.fetchedResultsViewController = self.fetchedResultsController
         controller?.fetchedResultsViewControllerDelegate = self
+        controller?.dataController = self.dataController
         
         self.show(controller!, sender: nil)
     }

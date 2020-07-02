@@ -42,17 +42,27 @@ class API {
         static let Accuracy = "11"
     }
     
-    static func bbox(pin: Pin) -> String {
-        let miniLon = max(pin.long - 0.2, -90)
-        let miniLat = max(pin.lat  - 0.2, -180)
-        let maxiLon = min(pin.long + 0.2, 90)
-        let maxiLat = min(pin.lat  + 0.2, 180)
-        return "\(miniLon),\(miniLat),\(maxiLon),\(maxiLat)"
+    struct BBox {
+        static let HalfWidth = 0.5
+        static let HalfHeight = 0.5
+        static let LatRange = (-90.0, 90.0)
+        static let LonRange = (-180.0, 180.0)
+    }
+    
+    static func bboxString(latitude: Double, longitude: Double) -> String {
+        // ensure bbox is bounded by minimum and maximums
+        let minimumLongitude = max(latitude  - API.BBox.HalfHeight, API.BBox.LatRange.0)
+        let minimumLatitude = max(longitude - API.BBox.HalfWidth, API.BBox.LonRange.0)
+        
+        let maximumLongitude = min(latitude  + API.BBox.HalfHeight, API.BBox.LatRange.1)
+        let maximumLatitude = min(longitude + API.BBox.HalfWidth, API.BBox.LonRange.1)
+        
+        return "\(minimumLatitude),\(minimumLongitude),\(maximumLatitude),\(maximumLongitude)"
     }
     
     class func getSearchResult(pin: Pin, completion: @escaping ([FlickrPhoto]?, Error?)->Void) {
         
-        let boundingBox = API.bbox(pin: pin)
+        let boundingBox = API.bboxString(latitude: pin.lat, longitude: pin.long)
         
         let urlParameters =  [ParameterKeys.Method: ParameterValues.SearchMethod, ParameterKeys.APIKey: ParameterValues.APIKey, ParameterKeys.Extras: ParameterValues.MediumURL, ParameterKeys.Format: ParameterValues.ResponseFormat, ParameterKeys.SafeSearch: ParameterValues.UseSafeSearch, ParameterKeys.PhotosPerPage:  ParameterValues.PhotosPerPage, ParameterKeys.NoJSONCallback: ParameterValues.DisableJSONCallback, ParameterKeys.BoundingBox: boundingBox, ParameterKeys.PhotoPage: (String(Int.random(in: 1...10)))] as [String : AnyObject]
 
